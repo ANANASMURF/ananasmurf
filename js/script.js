@@ -96,7 +96,7 @@ document.getElementById("formulaire").addEventListener("submit", function(e){
   let messagef = document.getElementById("messagef").value;
   let emailf = document.getElementById("emailf").value;
 
-fetch("https://discord.com/api/webhooks/ID/TOKEN", {
+fetch("https://discord.com/api/webhooks/https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
     method : "POST",
     headers: {
       "Content-Type": "application/json"
