@@ -91,38 +91,46 @@ function fCHEATCODE() {
 
 }
 let nomCode = localStorage.getItem("code");
+
 // tru c webhook : 
-document.getElementById("monFormulaire").addEventListener("submit", function(e){
 
-  e.preventDefault();
+const form = document.getElementById("monFormulaire");
 
-  let nomf = document.getElementById("nomf").value;
-  let messagef = document.getElementById("messagef").value;
-  let emailf = document.getElementById("emailf").value;
+if (form) {
+  form.addEventListener("submit", function(e){
 
-fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    content: "🍍 New Mighty Pineapple question",
-    embeds: [{
-      title: "New MP incoming?",
-      color: 5814783,
-      fields: [
-        { name: "Nom", value: nomf },
-        { name: "Email", value: emailf },
-        { name: "Message", value: messagef }
-      ]
-    }]
-  })
-})
-.then(() => {
-  alert("✅ Formulaire envoyé !");
-  document.getElementById("monFormulaire").reset();
-})
-.catch(err => {
-  console.error(err);
-  alert("❌ Erreur lors de l'envoi.");
-});
+    e.preventDefault();
+
+    let nomf = document.getElementById("nomf").value;
+    let messagef = document.getElementById("messagef").value;
+    let emailf = document.getElementById("emailf").value;
+
+    fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        content: "🍍 New Mighty Pineapple question",
+        embeds: [{
+          title: "New MP incoming?",
+          color: 5814783,
+          fields: [
+            { name: "Nom", value: nomf },
+            { name: "Email", value: emailf },
+            { name: "Message", value: messagef }
+          ]
+        }]
+      })
+    })
+    .then(() => {
+      alert("✅ Formulaire envoyé !");
+      form.reset();
+    })
+    .catch(err => {
+      console.error(err);
+      alert("❌ erreur d'envoi");
+    });
+
+  });
+}
