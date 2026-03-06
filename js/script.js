@@ -56,7 +56,10 @@ function afficherNom() {
  // variable du nom d'utlilisateur
 let nomUtilisateur = localStorage.getItem("username");
 
-document.getElementById("usernamenv").textContent = nomUtilisateur;
+const usernameElement = document.getElementById("usernamenv");
+if(usernameElement){
+  usernameElement.textContent = nomUtilisateur;
+}
 
 if (nomUtilisateur === "Ananas_Smurf") {
   alert("Hi pineapple overlord !");
@@ -87,7 +90,7 @@ document.getElementById("monFormulaire").addEventListener("submit", function(e){
   let messagef = document.getElementById("messagef").value;
   let emailf = document.getElementById("emailf").value;
 
-  fetch("https://discord.com/api/webhooks/ID/TOKEN", {
+  fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -106,5 +109,8 @@ document.getElementById("monFormulaire").addEventListener("submit", function(e){
       }]
     })
   });
+
+  alert("✅ Formulaire envoyé !");
+  document.getElementById("monFormulaire").reset();
 
 });
