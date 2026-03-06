@@ -80,7 +80,7 @@ function fCHEATCODE() {
 let nomCode = localStorage.getItem("code");
 // tru c webhook : 
 document.getElementById("formulaire").addEventListener("submit", function(e){
-
+  alert("WORK");
   e.preventDefault();
 
   let nomf = document.getElementById("nomf").value;
