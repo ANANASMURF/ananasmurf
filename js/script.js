@@ -79,22 +79,22 @@ function fCHEATCODE() {
 }
 let nomCode = localStorage.getItem("code");
 // tru c webhook : 
-document.getElementById("formulaire").addEventListener("submit", function(e){
-  alert("WORK");
+document.getElementById("monFormulaire").addEventListener("submit", function(e){
+
   e.preventDefault();
 
   let nomf = document.getElementById("nomf").value;
   let messagef = document.getElementById("messagef").value;
   let emailf = document.getElementById("emailf").value;
 
-fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
-    method : "POST",
-    mode: "no-cors"
+  fetch("https://discord.com/api/webhooks/ID/TOKEN", {
+    method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      content: "New Mighty Pineapple question",
+      content: "🍍 New Mighty Pineapple question",
       embeds: [{
         title: "New MP incoming?",
         color: 5814783,
@@ -104,7 +104,7 @@ fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpW
           { name: "Message", value: messagef }
         ]
       }]
-      })
     })
   });
+
 });
