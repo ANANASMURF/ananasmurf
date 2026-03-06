@@ -30,7 +30,17 @@ if (localStorage.getItem("accepted") === "yes") {
   document.body.style.overflow = "hidden";
 }
 
-yesBtn.addEventListener("click", function () {
+if (yesBtn) {
+  yesBtn.addEventListener("click", function () {
+
+    if (remember.checked) {
+      localStorage.setItem("accepted", "yes");
+    }
+
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+}
 
   if (remember.checked) {
     localStorage.setItem("accepted", "yes");
@@ -90,27 +100,29 @@ document.getElementById("monFormulaire").addEventListener("submit", function(e){
   let messagef = document.getElementById("messagef").value;
   let emailf = document.getElementById("emailf").value;
 
-  fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      content: "🍍 New Mighty Pineapple question",
-      embeds: [{
-        title: "New MP incoming?",
-        color: 5814783,
-        fields: [
-          { name: "Nom", value: nomf },
-          { name: "Email", value: emailf },
-          { name: "Message", value: messagef }
-        ]
-      }]
-    })
-  });
-
+fetch("https://discord.com/api/webhooks/1479382110023188557/j9syOeKRBrx3sAtqSXpWst4y0zZc2uiQOXgYt30xXoSYJ-JvzvtIuPj2Py3T0xRx8YIy", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    content: "🍍 New Mighty Pineapple question",
+    embeds: [{
+      title: "New MP incoming?",
+      color: 5814783,
+      fields: [
+        { name: "Nom", value: nomf },
+        { name: "Email", value: emailf },
+        { name: "Message", value: messagef }
+      ]
+    }]
+  })
+})
+.then(() => {
   alert("✅ Formulaire envoyé !");
   document.getElementById("monFormulaire").reset();
-
+})
+.catch(err => {
+  console.error(err);
+  alert("❌ Erreur lors de l'envoi.");
 });
