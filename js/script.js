@@ -78,16 +78,7 @@ function fCHEATCODE() {
 
 }
 let nomCode = localStorage.getItem("code");
-
-
-document.getElementById("formulaire").addEventListener("submit", function(e){
-
-  e.preventDefault();
-
-  let nom = document.getElementById("nom").value;
-  let email = document.getElementById("email").value;
-  let message = document.getElementById("message").value;
-
+// tru c webhook : 
 document.getElementById("formulaire").addEventListener("submit", function(e){
 
   e.preventDefault();
@@ -115,5 +106,4 @@ fetch("https://discord.com/api/webhooks/https://discord.com/api/webhooks/1479382
       })
     })
   });
-
 });
