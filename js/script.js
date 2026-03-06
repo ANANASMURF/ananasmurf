@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             color: 5814783,
             fields: [
               { name: "Name", value: nomf },
-              { name: "Mail", value: emailf },
+              { name: "Mail", "||" + value: emailf + "||"},
               { name: "Reason", value: messagef }
             ]
           }]
