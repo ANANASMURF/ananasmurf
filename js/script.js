@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "New MP incoming?",
             color: 5814783,
             fields: [
-              { name: "Nom", value: nomf },
-              { name: "Email", value: emailf },
-              { name: "Message", value: messagef }
+              { name: "Name", value: nomf },
+              { name: "Mail", value: emailf },
+              { name: "Reason", value: messagef }
             ]
           }]
         })
